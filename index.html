@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="style.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -36,33 +37,5 @@
         </p>
     </footer>
 </div>
-<script>
-    $(function(){
-
-        $(".form-searchImage input").keypress(function(e) {
-           if(e.which == 13){
-               e.preventDefault();
-               $(".form-searchImage").submit();
-               var searchValue = $(".form-searchImage input").val();
-               var API_KEY = "3374682-d1aa875b8db23aaadcf236ea3";
-               var min_width = 960;
-               var min_height = 600;
-               var per_page = 200;
-               var url = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(searchValue) + "&per_page=" + per_page ;/*+ "&min_width=" + min_width;*/
-               console.log(url)
-               $.getJSON(url,function(data){
-                   $(".image-list").empty();
-                   console.log(data)
-                   for(var i=0;i<data.hits.length;i++) {
-                       console.log(data.hits[i].webformatURL)
-                       var element = "<li> <img src='" + data.hits[i].previewURL + "' /> </li>  "
-                       $(".image-list").append(element);
-                       console.log(element)
-                   }
-               });
-           }
-        });
-    });
-</script>
 </body>
 </html>
