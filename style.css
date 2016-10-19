@@ -69,6 +69,7 @@ header input[type="text"]{
 .image-list li {
     display: inline-block;
     font-size: 0;
+    position: relative;
 }
 .image-list li a{
     height: 240px;
@@ -79,6 +80,27 @@ header input[type="text"]{
     background-position: center center;
     display: block;
     cursor: pointer;
+}
+.image-list li:hover .set-background{
+    display: block;
+    opacity: 1;
+}
+.set-background {
+    color: #fff;
+    font-size: 14px;
+    background: #000;
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    font-weight: 100;
+    font-style: italic;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 10px;
+    display: none;
+    cursor: pointer;
+    /*transition: opacity .8s ease-in-out ;*/
 }
 footer {
     background: rgba(0,0,0,.6);

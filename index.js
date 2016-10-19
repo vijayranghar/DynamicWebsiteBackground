@@ -23,7 +23,9 @@ function fetch_images(){
             thumbnail_image = data.hits[i].webformatURL; // get thumnail url
             resized_thumbnail_image = thumbnail_image.replace(/_640/g,'_340');
             image_full = data.hits[i].webformatURL;
-            var element = "<li> <a target='_blank' style='background-image: url(" + resized_thumbnail_image + ")' href=" + image_full + "></a> </li>" ;
+            var element = "<li> " +
+                "<a target='_blank' style='background-image: url(" + resized_thumbnail_image + ")' href=" + image_full + "></a> " +
+                "<span class='set-background'>Set as background</span> </li>" ;
             $(".image-list").append(element);
         }
         callback(data);
