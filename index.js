@@ -17,7 +17,7 @@ function fetch_images(){
    // console.log(url)
     $.getJSON(url,function(data){
         $(".image-list").empty();
-        document.getElementById("popup").style.display="block"
+        showPopup()
         for(var i=0;i<data.hits.length;i++) {
             //console.log(data);
             thumbnail_image = data.hits[i].webformatURL; // get thumnail url
@@ -31,6 +31,14 @@ function fetch_images(){
 
 }
 
+function showPopup(){
+    document.getElementById("popup").style.display="block";
+    //popup close
+    document.getElementById("close").addEventListener('click',function(){
+        var popup = document.getElementById("popup");
+        popup.style.display="none";
+    })
+}
 var callback = function (data) {
     console.log(data);
 }
