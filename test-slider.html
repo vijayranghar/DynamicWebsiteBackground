@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        #popup{
+            display: none;
+            width: 100%;
+            position: fixed;
+            top:0;
+            right:0;
+            left:0;
+            bottom:0;
+            background: rgba(0,0,0,.5);
+        }
+        .popup-content{
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            background: #fff;
+            padding: 14px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+<div class="slider">
+    <img id="image-slider" src=" "/>
+    <a href="#" onclick="prev()">previous</a>
+    <a href="#" onclick="next()">next</a>
+</div>
+
+<button id="hello">click me</button>
+
+<div id="popup">
+    <div class="popup-content">
+        <h1>hello I am popup</h1>
+    </div>
+</div>
+<script>
+    var arr_images = ["https://pixabay.com/get/e833b00e2df4083ed95c4518b74f4591e771ead704b0154693f5c07fa6ebb3_340.jpg",
+    "https://pixabay.com/get/e830b10b2af01c2ad65a5854e54f4192e57fe0c818b5164790f1c778a1eb_340.png",
+    "https://pixabay.com/get/e833b00e2ff0043ed95c4518b74f4591e771ead704b0154693f5c07fa6ebb3_340.jpg",
+    "https://pixabay.com/get/e833b00e2ff1013ed95c4518b74f4591e771ead704b0154693f5c07fa6ebb3_340.jpg",
+    "https://pixabay.com/get/e830b50928f0003ed95c4518b74f4591e771ead704b0154693f5c07fa6ebb3_340.png"
+    ];
+
+    //initialize slider
+    var i=0;
+    document.getElementById("image-slider").src=arr_images[0]
+
+    function next(){
+
+        i++;
+        if(i>=arr_images.length){
+            i=0;
+        }
+        document.getElementById("image-slider").src=arr_images[i];
+    }
+
+    function prev(){
+        i--;
+        if(i<0){
+            i= arr_images.length-1;
+        }
+        document.getElementById("image-slider").src=arr_images[i];
+    }
+
+    /* show pop up */
+    document.getElementById("hello").addEventListener("click",function(){
+      var popup = document.getElementById("popup");
+      popup.style.display="block";
+    });
+</script>
+</body>
+</html>
