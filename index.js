@@ -38,7 +38,7 @@ $(function(){
 function fetch_images(){
     var searchValue = $(".form-searchImage input").val();
     var API_KEY = "3374682-d1aa875b8db23aaadcf236ea3";
-    var per_page = 50;
+    var per_page = 200;
     var thumbnail_image,resized_thumbnail_image,image_full;
     var url = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(searchValue) + "&per_page=" + per_page ;/*+ "&min_width=" + min_width;*/
    // console.log(url)
