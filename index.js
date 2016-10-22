@@ -6,6 +6,19 @@ $(function(){
             fetch_images();
         }
     });
+
+    /* get selected image url */
+    document.getElementById("image-list").addEventListener('click',function(e){
+        if(e.target.nodeName== "SPAN")
+        {
+            var background = e.target.previousSibling;
+            var element = document.getElementsByClassName('wrapper');
+            console.log(element)
+            window.localStorage('background-image':element);
+            for(var i= 0; i<element.length;i++)
+            console.log(element[i].style.backgroundImage="url('"+background + "')");
+        }
+    })
 });
 
 function fetch_images(){
@@ -17,16 +30,16 @@ function fetch_images(){
    // console.log(url)
     $.getJSON(url,function(data){
         $(".image-list").empty();
-        showPopup()
+        showPopup();
         for(var i=0;i<data.hits.length;i++) {
             //console.log(data);
             thumbnail_image = data.hits[i].webformatURL; // get thumnail url
             resized_thumbnail_image = thumbnail_image.replace(/_640/g,'_340');
             image_full = data.hits[i].webformatURL;
             var element = "<li> " +
-                "<a target='_blank' style='background-image: url(" + resized_thumbnail_image + ")' href=" + image_full + "></a> " +
+                "<a target='_blank' style='background-image: url(" + resized_thumbnail_image + ")' href=" + image_full + "></a>" +
                 "<span class='set-background'>Set as background</span> </li>" ;
-            $(".image-list").append(element);
+            $("#image-list").append(element);
         }
         callback(data);
     })
@@ -44,3 +57,8 @@ function showPopup(){
 var callback = function (data) {
     console.log(data);
 }
+
+window.localStorage(showPopup()-image:"https://drscdn.500px.org/photo/87206859/m%3D2048/c9128d2ca772fa229f6d30405b57a61e");
+var wrapper = document.getElementsByClassName('wrapper')
+for(i=0;i<wrapper.length;i++)
+wrapper[i].style.backgroundImage=localStorage.getItem('background-image')
