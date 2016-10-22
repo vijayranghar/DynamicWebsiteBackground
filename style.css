@@ -12,7 +12,10 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 .wrapper{
-    background: url("https://drscdn.500px.org/photo/148437083/m%3D2048/da36861b57078d0805a75154aa5e8f8f")no-repeat center center fixed;
+    /*background: url("https://drscdn.500px.org/photo/148437083/m%3D2048/da36861b57078d0805a75154aa5e8f8f")no-repeat center center fixed;*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     height: 100vh;
     width: 100%;
     background-size: cover;
