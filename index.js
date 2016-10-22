@@ -62,10 +62,20 @@ function fetch_images(){
 /* show popup after search */
 function showPopup(){
     document.getElementById("popup").style.display="block";
+
     //popup close
+    var popup = document.getElementById("popup");
     document.getElementById("close").addEventListener('click',function(){
-        var popup = document.getElementById("popup");
         popup.style.display="none";
     })
+    //popup close on escape key pressed
+    if(popup.style.display=="block")
+    {
+        window.onkeydown = function (e) {
+            if(e.keyCode == 27){
+                popup.style.display="none";
+            }
+        }
+    }
 }
 
